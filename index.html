@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HCC — Havana Cigar Club | Luxury Cuban Cigar Concierge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Havana Cigar Club is a private Cuban cigar concierge for collectors and enthusiasts seeking authenticity, rarity, and luxury service." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-bg-texture"></div>
+
+  <!-- Floating WhatsApp Button -->
+  <a
+    href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20speak%20with%20the%20concierge."
+    class="floating-whatsapp"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat with HCC on WhatsApp"
+  >
+    <span class="wa-icon"></span>
+  </a>
+
+  <!-- Luxury Concierge Assistant -->
+  <div class="concierge-widget" id="conciergeWidget" aria-live="polite">
+    <div class="concierge-header">
+      <div class="concierge-avatar">
+        <span class="avatar-smoke"></span>
+      </div>
+      <div class="concierge-title-wrap">
+        <h3>HCC Concierge</h3>
+        <p>How may we assist you today?</p>
+      </div>
+      <button class="concierge-toggle" id="conciergeToggle" aria-label="Toggle concierge">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="concierge-body">
+      <div class="concierge-context" id="conciergeContext"></div>
+      <div class="concierge-questions">
+        <button class="concierge-question" data-question="authentic">
+          Are your cigars authentic?
+        </button>
+        <button class="concierge-question" data-question="payment">
+          What payment methods are available?
+        </button>
+        <button class="concierge-question" data-question="photos">
+          Can I request real photos before ordering?
+        </button>
+        <button class="concierge-question" data-question="humidor">
+          Can you help me with my humidor?
+        </button>
+        <button class="concierge-question" data-question="resources">
+          Do you offer beginner resources?
+        </button>
+        <button class="concierge-question" data-question="beginner">
+          Which cigar would you recommend for a beginner?
+        </button>
+        <button class="concierge-question" data-question="occasions">
+          Which cigar is best for special occasions?
+        </button>
+        <button class="concierge-question" data-question="storage">
+          How should I store my cigars properly?
+        </button>
+      </div>
+      <div class="concierge-answer" id="conciergeAnswer"></div>
+      <div class="concierge-cta">
+        <p class="concierge-subtext">Need personalized assistance?</p>
+        <a
+          href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20personalized%20cigar%20advice."
+          target="_blank"
+          rel="noopener"
+          class="btn btn-gold-outline"
+        >
+          Speak With Our Concierge
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-out Inquiry Cart -->
+  <div class="inquiry-cart" id="inquiryCart" aria-label="Inquiry cart" aria-hidden="true">
+    <div class="inquiry-cart-header">
+      <h3>Your Inquiry List</h3>
+      <button class="cart-close" id="cartClose" aria-label="Close inquiry cart">&times;</button>
+    </div>
+    <div class="inquiry-cart-body">
+      <ul class="inquiry-items" id="inquiryItems"></ul>
+      <p class="inquiry-empty" id="inquiryEmpty">Your list is empty. Add cigars to begin your private quote.</p>
+    </div>
+    <div class="inquiry-cart-footer">
+      <button class="btn btn-gold" id="requestQuoteBtn">
+        Request My Quote
+      </button>
+      <p class="inquiry-note">
+        Your request will be sent privately via WhatsApp to our concierge at HCC.
+      </p>
+    </div>
+  </div>
+
+  <!-- Cart Toggle Badge -->
+  <button class="cart-toggle" id="cartToggle" aria-label="Open inquiry cart">
+    <span class="cart-icon"></span>
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+
+  <!-- Main Layout -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <img src="hcc.jpg" alt="HCC Havana Cigar Club logo" class="brand-logo" />
+      </a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          <span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#rare">Rare Arrivals</a></li>
+          <li><a href="#heritage">Heritage</a></li>
+          <li><a href="#trust">Why Collectors Trust HCC</a></li>
+          <li><a href="#library">Knowledge Library</a></li>
+          <li><a href="#experience">The HCC Experience</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a
+        href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20speak%20with%20the%20concierge."
+        class="btn btn-gold header-cta"
+        target="_blank"
+        rel="noopener"
+      >
+        Speak With Our Concierge
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-overlay"></div>
+      <div class="hero-smoke hero-smoke-left"></div>
+      <div class="hero-smoke hero-smoke-right"></div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="hero-kicker">Private Cuban Cigar Concierge</p>
+          <h1 id="heroTitle">Havana Cigar Club</h1>
+          <p class="hero-subtitle">Light it, Live it &amp; Love it ✨💨</p>
+          <p class="hero-text">
+            A private collection of authentic Cuban cigars curated for those who appreciate life's finest moments.
+          </p>
+          <div class="hero-actions">
+            <a href="#collection" class="btn btn-gold">Explore Collection</a>
+            <a
+              href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20speak%20with%20the%20concierge."
+              class="btn btn-ghost"
+              target="_blank"
+              rel="noopener"
+            >
+              Speak With Our Concierge
+            </a>
+          </div>
+          <div class="hero-meta">
+            <span>Authentic Cuban Cigars</span>
+            <span>Curated For Collectors</span>
+            <span>Discreet Private Service</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card hero-card-main">
+            <div class="hero-card-image">
+              <img src="imageshcc/cohiba1.jpg" alt="Selection of Cohiba Cuban cigars" />
+              <div class="hero-card-smoke"></div>
+            </div>
+            <div class="hero-card-body">
+              <h3>Cohiba Private Selection</h3>
+              <p>Handpicked Cohiba vitolas, resting in controlled humidors, ready for your next ritual.</p>
+            </div>
+          </div>
+          <div class="hero-card hero-card-secondary">
+            <div class="hero-card-image small">
+              <img src="imageshcc/montecristo1.jpg" alt="Montecristo Cuban cigar close-up" />
+            </div>
+            <div class="hero-card-body">
+              <h4>Concierge Recommendations</h4>
+              <p>Tell us the moment. We’ll suggest the cigar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section id="collection" class="section section-dark">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Featured Collection</p>
+          <h2>Curated Cuban Cigar Selection</h2>
+          <p>
+            Each cigar in our collection is stored in controlled humidors and selected for its character, balance, and
+            provenance. Explore, build your inquiry list, and let our concierge handle the rest.
+          </p>
+        </header>
+
+        <div class="collection-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Cohiba">Cohiba</button>
+          <button class="filter-btn" data-filter="Montecristo">Montecristo</button>
+          <button class="filter-btn" data-filter="Romeo y Julieta">Romeo y Julieta</button>
+          <button class="filter-btn" data-filter="Partagás">Partagás</button>
+          <button class="filter-btn" data-filter="Hoyo de Monterrey">Hoyo de Monterrey</button>
+          <button class="filter-btn" data-filter="Trinidad">Trinidad</button>
+          <button class="filter-btn" data-filter="H. Upmann">H. Upmann</button>
+          <button class="filter-btn" data-filter="Punch">Punch</button>
+          <button class="filter-btn" data-filter="Bolívar">Bolívar</button>
+        </div>
+
+        <div class="collection-grid" id="collectionGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Rare Arrivals & Limited Releases -->
+    <section id="rare" class="section section-rare">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Rare Arrivals &amp; Limited Releases</p>
+          <h2>For The Discerning Collector</h2>
+          <p>
+            Limited production, special editions, and age-worthy vitolas—presented for collectors who seek what others
+            cannot easily find.
+          </p>
+        </header>
+        <div class="rare-grid" id="rareGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- HCC Heritage -->
+    <section id="heritage" class="section section-split">
+      <div class="container split-layout">
+        <div class="split-text">
+          <p class="section-kicker">HCC Heritage</p>
+          <h2>A Tradition Of Cuban Excellence</h2>
+          <p>
+            Havana Cigar Club was born from a simple belief: authentic Cuban cigars deserve an equally authentic
+            experience. No mass-market storefronts, no rushed transactions—just a private, considered journey into the
+            world of fine cigars.
+          </p>
+          <p>
+            Our collection is sourced through trusted channels, stored in carefully calibrated humidors, and curated by
+            enthusiasts who understand that every cigar carries a story—from the soil of Vuelta Abajo to the final draw.
+          </p>
+          <ul class="heritage-list">
+            <li><span>Authentic Cuban provenance</span></li>
+            <li><span>Humidor expertise &amp; storage discipline</span></li>
+            <li><span>Personal recommendations for every palate</span></li>
+            <li><span>Discreet, relationship-driven service</span></li>
+          </ul>
+        </div>
+        <div class="split-visual">
+          <div class="heritage-card">
+            <img src="imageshcc/hoyo1.jpg" alt="Cuban cigars resting in a humidor" />
+            <div class="heritage-overlay">
+              <h3>Humidor-Crafted Rituals</h3>
+              <p>Every cigar is kept at optimal temperature and humidity before it ever reaches your hand.</p>
+            </div>
+          </div>
+          <div class="heritage-card secondary">
+            <img src="imageshcc/partagas1.jpg" alt="Close-up of a Partagás cigar band" />
+            <div class="heritage-overlay">
+              <h4>Trusted Sourcing</h4>
+              <p>We work only with reliable channels to protect your collection and your confidence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Collectors Trust HCC -->
+    <section id="trust" class="section section-dark">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Why Collectors Trust HCC</p>
+          <h2>Confidence In Every Box</h2>
+          <p>
+            Our clients return not only for the cigars, but for the certainty that every detail has been considered.
+          </p>
+        </header>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <h3>Authentic Cuban Cigars</h3>
+            <p>Every cigar is sourced from trusted channels with a focus on authenticity and integrity.</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <h3>Controlled Humidor Storage</h3>
+            <p>Temperature and humidity are monitored to preserve aroma, draw, and aging potential.</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <h3>Personalized Recommendations</h3>
+            <p>From first-time smokers to seasoned collectors, we tailor each suggestion to your taste.</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <h3>Trusted By Returning Customers</h3>
+            <p>Our relationships are built over years, boxes, and shared moments—not one-time transactions.</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <h3>Private Concierge Service</h3>
+            <p>WhatsApp-based, discreet, and always human—your personal cigar advisor is a message away.</p>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">✓</span>
+            <h3>Luxury Client Experience</h3>
+            <p>From first inquiry to final ash, every touchpoint is designed to feel considered and refined.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Knowledge Library -->
+    <section id="library" class="section section-library">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">HCC Knowledge Library</p>
+          <h2>Guidance For Every Stage Of Your Journey</h2>
+          <p>
+            Whether you are lighting your first Cuban or curating a serious collection, our guides are designed to
+            educate without overwhelming.
+          </p>
+        </header>
+        <div class="library-grid">
+          <article class="library-card">
+            <h3>Beginner Cigar Guide</h3>
+            <p>
+              Understand strength, flavor profiles, vitolas, and how to choose a cigar that matches your moment—not just
+              the label.
+            </p>
+            <ul>
+              <li>How to read cigar bands &amp; names</li>
+              <li>Understanding strength vs. body</li>
+              <li>Recommended first Cuban cigars</li>
+            </ul>
+            <a
+              href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20your%20beginner%20cigar%20guide."
+              class="text-link"
+              target="_blank"
+              rel="noopener"
+            >
+              Request beginner guidance via WhatsApp
+            </a>
+          </article>
+          <article class="library-card">
+            <h3>Humidor Guide</h3>
+            <p>
+              Learn how to season, calibrate, and maintain your humidor so every cigar rests in ideal conditions.
+            </p>
+            <ul>
+              <li>Choosing the right humidor size</li>
+              <li>Ideal humidity &amp; temperature</li>
+              <li>Common mistakes to avoid</li>
+            </ul>
+            <a
+              href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20help%20with%20my%20humidor."
+              class="text-link"
+              target="_blank"
+              rel="noopener"
+            >
+              Ask our concierge about your humidor
+            </a>
+          </article>
+          <article class="library-card">
+            <h3>Cutting Guide</h3>
+            <p>
+              The right cut can transform your experience. Discover which cut suits each vitola and your preferred draw.
+            </p>
+            <ul>
+              <li>Straight, V-cut, and punch</li>
+              <li>How to avoid cracking the cap</li>
+              <li>Tools we recommend</li>
+            </ul>
+            <a
+              href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20your%20cutting%20guide."
+              class="text-link"
+              target="_blank"
+              rel="noopener"
+            >
+              Request cutting tips
+            </a>
+          </article>
+          <article class="library-card">
+            <h3>Aging &amp; Storage Guide</h3>
+            <p>
+              Some cigars are perfect now; others reward patience. Learn how to age, rotate, and track your collection.
+            </p>
+            <ul>
+              <li>Which cigars benefit from aging</li>
+              <li>How to organize your humidor</li>
+              <li>Recognizing when a cigar is ready</li>
+            </ul>
+            <a
+              href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20learn%20about%20aging%20and%20storage."
+              class="text-link"
+              target="_blank"
+              rel="noopener"
+            >
+              Discuss aging strategy with our concierge
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- The HCC Experience -->
+    <section id="experience" class="section section-experience">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">The HCC Experience</p>
+          <h2>More Than A Cigar. A Ritual.</h2>
+          <p>
+            We design every interaction—from your first WhatsApp message to the final exhale—to feel like a visit to a
+            private members’ lounge.
+          </p>
+        </header>
+        <div class="experience-grid">
+          <div class="experience-card">
+            <img src="imageshcc/romeo2.jpg" alt="Cuban cigar with whiskey pairing" />
+            <div class="experience-overlay">
+              <h3>Whiskey Pairings</h3>
+              <p>Explore pairings that elevate both the spirit and the cigar, tailored to your taste.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="imageshcc/ttt.jpg" alt="Trinidad Topes limited edition cigar" />
+            <div class="experience-overlay">
+              <h3>Collector Pieces</h3>
+              <p>Limited editions and age-worthy boxes curated for serious collectors.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="imageshcc/hupmann.jpg" alt="H. Upmann cigar resting on leather seating" />
+            <div class="experience-overlay">
+              <h3>Leather &amp; Walnut</h3>
+              <p>A visual language inspired by private lounges, leather armchairs, and dark wood.</p>
+            </div>
+          </div>
+          <div class="experience-card">
+            <img src="imageshcc/punch.jpg" alt="Punch Double Coronas cigar close-up" />
+            <div class="experience-overlay">
+              <h3>Accessories &amp; Rituals</h3>
+              <p>From cutters to lighters, we guide you through the details that complete the ritual.</p>
+            </div>
+          </div>
+        </div>
+        <div class="experience-cta">
+          <p>Share the moment you’re planning—our concierge will suggest the perfect cigar and pairing.</p>
+          <a
+            href="https://wa.me/963988614489?text=Hello%20HCC%2C%20here%27s%20the%20occasion%20I%27m%20planning..."
+            class="btn btn-gold"
+            target="_blank"
+            rel="noopener"
+          >
+            Curate My Experience
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section section-dark">
+      <div class="container">
+        <header class="section-header">
+          <p class="section-kicker">Client Testimonials</p>
+          <h2>Stories From Our Members</h2>
+          <p>
+            Our clients value discretion, authenticity, and expertise. Here is how they describe their time with Havana
+            Cigar Club.
+          </p>
+        </header>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              “I stopped buying cigars from random shops the moment I found HCC. Every box feels carefully chosen, and
+              the recommendations are always on point.”
+            </p>
+            <p class="testimonial-name">— A. R., Dubai</p>
+            <p class="testimonial-meta">Collector &amp; Weekend Smoker</p>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              “What I appreciate most is the honesty. If a cigar isn’t right for the occasion, they’ll say so and
+              suggest something better. It feels like a true partnership.”
+            </p>
+            <p class="testimonial-name">— M. K., Abu Dhabi</p>
+            <p class="testimonial-meta">Corporate Gifting &amp; Private Events</p>
+          </article>
+          <article class="testimonial-card">
+            <p class="testimonial-quote">
+              “As a beginner, I never felt judged. The concierge walked me through everything—from cutting to storage—
+              and now I’m building a collection I’m proud of.”
+            </p>
+            <p class="testimonial-name">— S. H., Riyadh</p>
+            <p class="testimonial-meta">New Enthusiast</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / WhatsApp Conversion -->
+    <section id="contact" class="section section-contact">
+      <div class="container contact-grid">
+        <div class="contact-text">
+          <p class="section-kicker">Private Contact</p>
+          <h2>Begin Your HCC Journey</h2>
+          <p>
+            Share what you’re looking for—a specific box, a gift, a celebration, or a long-term collection—and our
+            concierge will respond personally via WhatsApp.
+          </p>
+          <div class="contact-details">
+            <div>
+              <h3>WhatsApp</h3>
+              <a
+                href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20start%20a%20cigar%20inquiry."
+                target="_blank"
+                rel="noopener"
+              >
+                +963 988 614 489
+              </a>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <a href="tel:+963983025324">+963 983 025 324</a>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <a href="mailto:havanacigarclubae@gmail.com">havanacigarclubae@gmail.com</a>
+            </div>
+            <div>
+              <h3>Instagram</h3>
+              <a href="https://www.instagram.com/havanacigarclub.ae" target="_blank" rel="noopener">
+                @havanacigarclub.ae
+              </a>
+            </div>
+          </div>
+          <div class="contact-cta">
+            <a
+              href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20explore%20your%20current%20collection."
+              class="btn btn-gold"
+              target="_blank"
+              rel="noopener"
+            >
+              Start A Private Conversation
+            </a>
+          </div>
+        </div>
+        <div class="contact-visual">
+          <div class="contact-card">
+            <img src="imageshcc/cohiba4.jpg" alt="Cohiba cigar box in a luxury setting" />
+            <div class="contact-overlay">
+              <h3>Exclusivity. Authenticity. Ritual.</h3>
+              <p>Havana Cigar Club is not a store. It is a private gateway into the world of Cuban cigars.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="hcc.jpg" alt="HCC Havana Cigar Club logo" />
+        <p>Havana Cigar Club — a private Cuban cigar concierge for collectors, enthusiasts, and those who value ritual.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#rare">Rare Arrivals</a></li>
+            <li><a href="#heritage">Heritage</a></li>
+            <li><a href="#library">Knowledge Library</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Experience</h4>
+          <ul>
+            <li><a href="#experience">The HCC Experience</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Concierge Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Concierge</h4>
+          <ul>
+            <li>
+              <a
+                href="https://wa.me/963988614489?text=Hello%20HCC%2C%20I%27d%20like%20to%20speak%20with%20the%20concierge."
+                target="_blank"
+                rel="noopener"
+              >
+                WhatsApp Concierge
+              </a>
+            </li>
+            <li><a href="tel:+963983025324">Call HCC</a></li>
+            <li><a href="mailto:havanacigarclubae@gmail.com">Email HCC</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <p>&copy; <span id="year"></span> HCC — Havana Cigar Club. All rights reserved.</p>
+        <p class="footer-note">For adults of legal smoking age only. Please enjoy responsibly.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
